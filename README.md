@@ -5,7 +5,7 @@ This extension allows you to chat with the DeepSeek R1 model directly within VSC
 ## Features
 
 - Modern and user-friendly chat interface
-- Multiple DeepSeek R1 model variants (1.5B, 7B, 8B, 14B, 32B, 70B, 617B)
+- Multiple DeepSeek R1 model variants (1.5B, 7B, 8B, 14B, 32B, 70B, 671B)
 - Markdown support with syntax highlighting for code blocks
 - VSCode theme-aware design
 - Automatic model download option
@@ -20,8 +20,8 @@ This extension allows you to chat with the DeepSeek R1 model directly within VSC
 
 1. Install and start Ollama on your system
 2. Open Command Palette (Cmd+Shift+P or Ctrl+Shift+P)
-3. Type "Start DeepSeek Chat" and press Enter
-4. Select your preferred model variant (1.5B to 617B)
+3. Type "DeepSeek: Start DeepSeek Chat" and press Enter
+4. Select your preferred model variant (1.5B to 671B)
 5. If the model is not available, the extension will offer to download it
 6. Once ready, you can start chatting with DeepSeek in the panel that appears
 

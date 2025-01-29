@@ -12,7 +12,7 @@ export const DEEPSEEK_MODELS = [
     'deepseek-r1:14b',
     'deepseek-r1:32b',
     'deepseek-r1:70b',
-    'deepseek-r1:617b'
+    'deepseek-r1:671b'
 ] as const;
 
 export type DeepseekModel = typeof DEEPSEEK_MODELS[number];
