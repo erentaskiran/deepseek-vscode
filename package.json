@@ -3,52 +3,84 @@
   "displayName": "DeepSeek R1 Chat",
   "description": "Chat with DeepSeek R1 model using Ollama in VSCode",
   "version": "0.0.1",
+  "publisher": "erentaskiran",
+  "author": {
+    "name": "Eren Taskiran"
+  },
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/deepseek-vscode"
+    "url": "https://github.com/erentaskiran/deepseek-vscode"
   },
+  "bugs": {
+    "url": "https://github.com/erentaskiran/deepseek-vscode/issues"
+  },
+  "homepage": "https://github.com/erentaskiran/deepseek-vscode#readme",
   "engines": {
     "vscode": "^1.96.0"
   },
   "categories": [
+    "Machine Learning",
+    "Programming Languages",
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:deepseek-vscode.startChat"
+  "keywords": [
+    "deepseek",
+    "ollama",
+    "ai",
+    "chat",
+    "code assistant"
   ],
-  "main": "./out/extension.js",
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "deepseek-vscode.startChat",
-        "title": "Start DeepSeek Chat"
+        "title": "Start DeepSeek Chat",
+        "category": "DeepSeek"
       }
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src",
-    "test": "vscode-test"
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "npm run build-icon && webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "build-icon": "node scripts/build-icon.js"
   },
   "dependencies": {
     "axios": "^1.6.7",
-    "marked": "^12.0.0",
-    "highlight.js": "^11.9.0"
+    "highlight.js": "^11.9.0",
+    "marked": "^12.0.0"
   },
   "devDependencies": {
-    "@types/vscode": "^1.96.0",
+    "@types/highlight.js": "^10.1.0",
+    "@types/marked": "^5.0.2",
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
+    "@types/vscode": "^1.96.0",
     "@typescript-eslint/eslint-plugin": "^8.17.0",
     "@typescript-eslint/parser": "^8.17.0",
-    "eslint": "^9.16.0",
-    "typescript": "^5.7.2",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
-    "@types/marked": "^5.0.2",
-    "@types/highlight.js": "^10.1.0"
+    "eslint": "^9.16.0",
+    "sharp": "^0.33.5",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
   }
 }
